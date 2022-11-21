@@ -1,6 +1,7 @@
 package org.generation.italy;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 /*
  * Todo
@@ -22,6 +23,20 @@ Creare una classe Biglietteria, che contiene il metodo main in cui:
 chiedere all’utente di inserire il numero di km e l’età del passeggero
 con quei dati provare a creare un nuovo Biglietto (gestire eventuali eccezioni con try-catch)
 stampare a video il prezzo del biglietto calcolato
+MILESTONE 3 (BONUS)
+Alla classe Biglietto aggiungere i seguenti attributi:
+
+data: LocalDate
+flessibile: boolean Entrambi gli attributi vanno valorizzati nel costruttore.
+Aggiungere due costanti:
+
+durata normale: 30 giorni (int)
+durata flessibile: 90 giorni (int)
+Aggiungere un metodo (calcolaDataScadenza: LocalDate) che calcola la data di scadenza del biglietto, applicando la durata normale o flessibile in base al parametro flessibile(boolean).
+
+Nel metodo che calcola il prezzo, se il biglietto è flessibile, maggiorare il prezzo del 10%.
+
+Modificare la classe Biglietteria in modo che, alla creazione del Biglietto, valorizzi la data con la data odierna e il parametro flessibile in base alla scelta dell’utente. Dopo aver stampato il prezzo del biglietto, stampare a video anche la data di scadenza.
 
  */
 
@@ -30,20 +45,31 @@ public class Ticket {
 	// variabili d'istanza
 	private int km;
 	private int age;
+	
+	// bonus 3
+	private LocalDate localDate;
+	private boolean isFlexible;
+	
 	// creo le costanti 
 	static final BigDecimal PRICE_PER_KM = new BigDecimal(0.21);
 	static final BigDecimal DISCAUNT_OVER_65 = new BigDecimal(0.40);
 	static final BigDecimal DISCAUNT_UNDER_18 = new BigDecimal(0.20);
+	// creo le costanti del bonus 3
+	static final int NORMAL_MATURITY = 30;
+	static final int FLEXIBLE_MATURITY = 90;
 	
 	
 	
 	// costruttore 
 	// inseriamo anche la presenza di una possibile eccezione poiche indicata nei metodi
-	public Ticket(int km, int age) throws Exception{
+	public Ticket(int km, int age, LocalDate localDate, boolean isFlexible) throws Exception{
 		
 		//chiamo le variabili di assegnazione ( set )
 		isValidKm(km);
 		isValidEta(age);
+		// bonus 3
+		setLocalDate(localDate);
+		setFlexible(isFlexible);
 	}
 
 	// generazioni della variabili get e set
@@ -62,6 +88,23 @@ public class Ticket {
 		this.age = age;
 	}
 	
+	// generazioni della variabili get e set bonus 3
+	public LocalDate getLocalDate() {
+		return localDate;
+	}
+
+	public void setLocalDate(LocalDate localDate) {
+		this.localDate = localDate;
+	}
+
+	public boolean isFlexible() {
+		return isFlexible;
+	}
+
+	public void setFlexible(boolean isFlexible) {
+		this.isFlexible = isFlexible;
+	}
+
 	// creo due metodi per verificare se gli attributi inseriti sono validi
 	// inseriamo anche le possibili eccezzioni
 	public void isValidKm(int km) throws Exception{
@@ -101,16 +144,41 @@ public class Ticket {
 		
 		// controlliamo l'età per apllicare lo sconto
 		if(age < 18) {
+			
 			price = price.subtract( DISCAUNT_UNDER_18.multiply(price) );
+			// condizione per vedere se bisogna applicare una maggioranza in base alla scadenza del biglietto
+			if(isFlexible) {
+				return price = price.add( price.multiply( BigDecimal.valueOf(0.10) ) );
+			}
 			return price;
 			
 		}else if(age > 65) {
 			price = price.subtract( DISCAUNT_OVER_65.multiply(price) );
+			
+			// condizione per vedere se bisogna applicare una maggioranza in base alla scadenza del biglietto
+			if(isFlexible) {
+				return price = price.add( price.multiply( BigDecimal.valueOf(0.10) ) );
+			}
 			return price;
 		}else {
+			// condizione per vedere se bisogna applicare una maggioranza in base alla scadenza del biglietto
+			if(isFlexible) {
+				return price = price.add( price.multiply( BigDecimal.valueOf(0.10) ) );
+			}
 			return price;
 		}
 		
+	}
+	
+	//metodo per il calcolo della scadenza
+	public LocalDate calculationExpiryDate() {
+		
+		// verifichiamo la tipologia di scadenza del biglietto
+		if(isFlexible) {
+			return localDate.plusDays(90);
+		}else {
+			return localDate.plusDays(30);
+		}
 	}
 	
 	//metodo toString per la visuallizazione dell'oggetto

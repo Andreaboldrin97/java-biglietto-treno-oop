@@ -1,5 +1,7 @@
 package org.generation.italy;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -69,7 +71,7 @@ public class Ticketing {
 			// stampami il messaggio d'errore
 			System.err.println(err.getMessage());
 				
-		// ricordiamoci di chiudere il canale aperto	
+		// ricordiamoci di chiudere il canale aperto anche se trova un errore	
 		}finally {
 			// in questo caso possiamo trovare qualche eccezzione nella chiusara 
 			try {
@@ -82,6 +84,40 @@ public class Ticketing {
 				err.printStackTrace();
 			}
 		}
+//-------------------------------------------------------------------------------------
+		System.out.println("*****************");
+		
+		// stampiamo in console i risultati salvati nel file bonus4
+		File ticketingRecords = new File("./TicketingRecords.txt");
+		//il recupero dei dati verrà fatto tramite lo scanner
+		Scanner fileSc = null;
+		// controlliamo se ci sono eccezzioni nel recupero dei dati del file
+		try {
+			
+			// apro lo scanner tramite il file
+			fileSc = new Scanner(ticketingRecords);
+			
+			// facciamo un ciclo while perche non sappiamo le righe del file
+			// con .hasNextLine() controlliamo se dopo l'iterazione c'è ancora una riga
+			while(fileSc.hasNextLine()) {
+				
+				//assegnamo ad una variabile la stringa ottenuta dal file
+				String fileLine = fileSc.nextLine();
+				System.out.println(fileLine);
+
+			}
+			System.out.println("*****************");
+			
+		// controllo se il file non viene trovato ( Eccezzione )
+		}catch(FileNotFoundException err) {
+			
+			//stampo l'errore
+			System.err.println(err.getMessage());
+		// ricordiamoci di chiudere il canale anche se trova un errore
+		}finally {
+			fileSc.close();
+		}
+		
 	// FINE MANI FUNCTION
 	}
 	

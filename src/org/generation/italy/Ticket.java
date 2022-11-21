@@ -188,7 +188,7 @@ public class Ticket {
 		return "KM da percorrere : " + getKm()
 				+ "\nEtà del passeggiero : " + getAge()
 				+ "\nIl data scadenza : " + calculationExpiryDate()
-				+ "\nPrezzo : " + priceCalculator() + "\n--------------\n";
+				+ "\nPrezzo : " + String.format("%.2f", priceCalculator()) + "\n--------------\n";
 	}
 
 }

@@ -76,7 +76,7 @@ public class Ticket {
 	public int getKm() {
 		return km;
 	}
-	public void setKm(int km) {
+	private void setKm(int km) {
 		this.km = km;
 	}
 
@@ -84,7 +84,7 @@ public class Ticket {
 	public int getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	private void setAge(int age) {
 		this.age = age;
 	}
 	

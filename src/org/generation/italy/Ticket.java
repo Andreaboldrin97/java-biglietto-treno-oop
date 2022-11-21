@@ -128,7 +128,7 @@ public class Ticket {
 	}
 	
 	// metodo per calcola il prezzo del biglietto
-	public BigDecimal priceCalculator(){
+	public BigDecimal getTicketPrice(){
 		
 		BigDecimal price = new BigDecimal(0.00);
 		// per fare le operazioni con i BigDecimal dobbiamo trasformare tutti i valori in BigDecimal
@@ -188,7 +188,7 @@ public class Ticket {
 		return "KM da percorrere : " + getKm()
 				+ "\nEtà del passeggiero : " + getAge()
 				+ "\nIl data scadenza : " + calculationExpiryDate()
-				+ "\nPrezzo : " + String.format("%.2f", priceCalculator()) + "\n--------------\n";
+				+ "\nPrezzo : " + String.format("%.2f", getTicketPrice()) + "\n--------------\n";
 	}
 
 }

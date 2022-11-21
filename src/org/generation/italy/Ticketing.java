@@ -55,7 +55,7 @@ public class Ticketing {
 				// calcolo la scadenza
 				System.out.println(ticket1.calculationExpiryDate());
 				// calcolo il prezzo del biglietto
-				System.out.printf("%.2f",ticket1.priceCalculator(), "\n");
+				System.out.printf("%.2f",ticket1.getTicketPrice(), "\n");
 				System.out.println("-----------------------");
 				
 				

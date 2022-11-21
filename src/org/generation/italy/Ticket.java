@@ -186,7 +186,9 @@ public class Ticket {
 	public String toString() {
 		
 		return "KM da percorrere : " + getKm()
-				+ "\nEtà del passeggiore : " + getAge();
+				+ "\nEtà del passeggiore : " + getAge()
+				+ "\nIl data scadenza : " + calculationExpiryDate()
+				+ "\nPrezzo : " + priceCalculator();
 	}
 
 }

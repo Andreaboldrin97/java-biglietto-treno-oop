@@ -1,0 +1,4 @@
+KM da percorrere : 100
+Età del passeggiore : 33
+Il data scadenza : 2022-12-21
+Prezzo : 20.9999999999999992228438827623904217034578323364257812500

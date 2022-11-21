@@ -146,29 +146,28 @@ public class Ticket {
 		if(age < 18) {
 			
 			price = price.subtract( DISCAUNT_UNDER_18.multiply(price) );
-			// condizione per vedere se bisogna applicare una maggioranza in base alla scadenza del biglietto
-			if(isFlexible) {
-				return price = price.add( price.multiply( BigDecimal.valueOf(0.10) ) );
-			}
-			return price;
-			
+			// chiamo la funzione per vedere se c'è n suplemento del prezzo
+			return surcharge(price);
 		}else if(age > 65) {
 			price = price.subtract( DISCAUNT_OVER_65.multiply(price) );
-			
-			// condizione per vedere se bisogna applicare una maggioranza in base alla scadenza del biglietto
-			if(isFlexible) {
-				return price = price.add( price.multiply( BigDecimal.valueOf(0.10) ) );
-			}
-			return price;
+			// chiamo la funzione per vedere se c'è n suplemento del prezzo
+			return surcharge(price);
 		}else {
-			// condizione per vedere se bisogna applicare una maggioranza in base alla scadenza del biglietto
-			if(isFlexible) {
-				return price = price.add( price.multiply( BigDecimal.valueOf(0.10) ) );
-			}
-			return price;
+			// chiamo la funzione per vedere se c'è n suplemento del prezzo
+			return surcharge(price);
 		}
 		
 	}
+	
+	// creo un metodo per verificare se bidogna applicare un supplemento al prezzo
+	private BigDecimal surcharge(BigDecimal price) {
+		// condizione per vedere se bisogna applicare una maggioranza in base alla scadenza del biglietto
+		if(isFlexible) {
+			return price = price.add( price.multiply( BigDecimal.valueOf(0.10) ) );
+		}
+			return price;
+	}
+	
 	
 	//metodo per il calcolo della scadenza
 	public LocalDate calculationExpiryDate() {

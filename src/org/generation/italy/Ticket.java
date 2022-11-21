@@ -31,7 +31,7 @@ public class Ticket {
 	private int km;
 	private int age;
 	// creo le costanti 
-	static final BigDecimal PRICE_PER_KM = new BigDecimal(21.00);
+	static final BigDecimal PRICE_PER_KM = new BigDecimal(0.21);
 	static final BigDecimal DISCAUNT_OVER_65 = new BigDecimal(0.40);
 	static final BigDecimal DISCAUNT_UNDER_18 = new BigDecimal(0.20);
 	
@@ -85,14 +85,14 @@ public class Ticket {
 	}
 	
 	// metodo per calcola il prezzo del biglietto
-	public void priceCalculator(){
+	public BigDecimal priceCalculator(){
 		
 		BigDecimal price = new BigDecimal(0.00);
 		// per fare le operazioni con i BigDecimal dobbiamo trasformare tutti i valori in BigDecimal
 		price = PRICE_PER_KM.multiply(BigDecimal.valueOf(km));
 		
 		//chiamo la funzione per la verifica dello sconto
-		calculateDiscount(price);
+		return calculateDiscount(price);
 		
 	}
 	
@@ -111,6 +111,14 @@ public class Ticket {
 			return price;
 		}
 		
+	}
+	
+	//metodo toString per la visuallizazione dell'oggetto
+	@Override
+	public String toString() {
+		
+		return "KM da percorrere : " + getKm()
+				+ "\nEtà del passeggiore : " + getAge();
 	}
 
 }

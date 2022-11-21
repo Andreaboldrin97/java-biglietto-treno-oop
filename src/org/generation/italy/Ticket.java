@@ -175,9 +175,9 @@ public class Ticket {
 		
 		// verifichiamo la tipologia di scadenza del biglietto
 		if(isFlexible) {
-			return localDate.plusDays(90);
+			return localDate.plusDays(FLEXIBLE_MATURITY);
 		}else {
-			return localDate.plusDays(30);
+			return localDate.plusDays(NORMAL_MATURITY);
 		}
 	}
 	

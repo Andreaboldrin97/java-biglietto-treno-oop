@@ -51,12 +51,12 @@ public class Ticket {
 	private boolean isFlexible;
 	
 	// creo le costanti 
-	static final BigDecimal PRICE_PER_KM = new BigDecimal(0.21);
-	static final BigDecimal DISCAUNT_OVER_65 = new BigDecimal(0.40);
-	static final BigDecimal DISCAUNT_UNDER_18 = new BigDecimal(0.20);
+	private static final BigDecimal PRICE_PER_KM = new BigDecimal(0.21);
+	private static final BigDecimal DISCAUNT_OVER_65 = new BigDecimal(0.40);
+	private static final BigDecimal DISCAUNT_UNDER_18 = new BigDecimal(0.20);
 	// creo le costanti del bonus 3
-	static final int NORMAL_MATURITY = 30;
-	static final int FLEXIBLE_MATURITY = 90;
+	private static final int NORMAL_MATURITY = 30;
+	private static final int FLEXIBLE_MATURITY = 90;
 	
 	
 	

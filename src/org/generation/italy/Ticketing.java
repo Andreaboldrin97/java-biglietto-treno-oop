@@ -60,7 +60,7 @@ public class Ticketing {
 				
 				
 				// meto il biglietto nel file 
-				myWriter.write(ticket1.toString());
+				myWriter.append(ticket1.toString());
 					
 			} catch (Exception err){
 				System.err.println(err.getMessage());

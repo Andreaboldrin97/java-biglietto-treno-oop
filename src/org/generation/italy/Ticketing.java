@@ -42,7 +42,7 @@ public class Ticketing {
 		FileWriter myWriter = null;
 		
 		
-		// controllo le eccezzioni
+		// controllo le eccezioni
 		try {
 			// indico a quale file farà riferimento il path dove scriverò
 			myWriter = new FileWriter ("TicketingRecords.txt", true);
@@ -91,7 +91,7 @@ public class Ticketing {
 		File ticketingRecords = new File("./TicketingRecords.txt");
 		//il recupero dei dati verrà fatto tramite lo scanner
 		Scanner fileSc = null;
-		// controlliamo se ci sono eccezzioni nel recupero dei dati del file
+		// controlliamo se ci sono eccezioni nel recupero dei dati del file
 		try {
 			
 			// apro lo scanner tramite il file

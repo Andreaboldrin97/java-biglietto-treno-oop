@@ -106,7 +106,7 @@ public class Ticket {
 	}
 
 	// creo due metodi per verificare se gli attributi inseriti sono validi
-	// inseriamo anche le possibili eccezzioni
+	// inseriamo anche le possibili eccezioni
 	public void isValidKm(int km) throws Exception{
 		
 		if (km <= 0) {

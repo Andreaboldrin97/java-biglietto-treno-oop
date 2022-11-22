@@ -31,9 +31,6 @@ public class Ticketing {
 		System.out.print("vuole un biglietto con data flessibile ? [ TRUE O FALSE ] ");
 		boolean isFlexible = sc.nextBoolean();
 		
-		//variabile che ci riporta la data odienerna 
-		LocalDate todaysDate = LocalDate.now();
-		
 		// chiudo lo scanner
 		sc.close();
 		
@@ -49,7 +46,7 @@ public class Ticketing {
 					
 			//chiamo il costruttore per creare un nuove oggetto Ticket
 			try {
-				Ticket ticket1 = new Ticket(km , age, todaysDate, isFlexible);
+				Ticket ticket1 = new Ticket(km , age, isFlexible);
 				System.out.println(ticket1);
 					
 				// calcolo la scadenza

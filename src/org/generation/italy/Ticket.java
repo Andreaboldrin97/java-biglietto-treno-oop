@@ -62,7 +62,7 @@ public class Ticket {
 	
 	// costruttore 
 	// inseriamo anche la presenza di una possibile eccezione poiche indicata nei metodi
-	public Ticket(int km, int age, LocalDate localDate, boolean isFlexible) throws Exception{
+	public Ticket(int km, int age, boolean isFlexible) throws Exception{
 		
 		//chiamo le variabili di assegnazione ( set )
 		isValidKm(km);
@@ -70,6 +70,8 @@ public class Ticket {
 		// bonus 3
 		setLocalDate(localDate);
 		setFlexible(isFlexible);
+		//variabile che ci riporta la data odienerna 
+		localDate = LocalDate.now();
 	}
 
 	// generazioni della variabili get e set

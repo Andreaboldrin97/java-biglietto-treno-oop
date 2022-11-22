@@ -186,6 +186,7 @@ public class Ticket {
 		
 		return "KM da percorrere : " + getKm()
 				+ "\nEtà del passeggiero : " + getAge()
+				+ "\nIl biglietto è flessibile : " + (isFlexible ? "si" : "no")
 				+ "\nIl data scadenza : " + calculationExpiryDate()
 				+ "\nPrezzo : " + String.format("%.2f", getTicketPrice()) + "\n--------------\n";
 	}
